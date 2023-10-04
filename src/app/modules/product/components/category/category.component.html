@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Categorías</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="navbar-collapse collapse" id="navbarSupportedContent">
+	<a class="navbar-brand"
+	   href="https://web.fciencias.unam.mx/docencia/horarios/presentacion/347487">
+	  Desarrollo Web Frontend
+	</a>
+	<ul class="navbar-nav mr-auto">
+	  <li class="nav-item active">
+            <a class="nav-link"
+	       href="https://classroom.google.com/c/NjE2NjgwNjk5MTM3">
+	      Classroom
+	    </a>
+	  </li>
+	  <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+	       role="button" data-toggle="dropdown" aria-haspopup="true"
+	       aria-expanded="false">
+              Guías
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML</a>
+              <a class="dropdown-item" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">CSS</a>
+              <a class="dropdown-item" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a>
+            </div>
+	  </li>
+	</ul>
+	<form class="form-inline my-2 my-lg-0"  action="https://www.reddit.com/search/">
+	  <input class="form-control mr-sm-2" name="q" type="search" placeholder="🐈" aria-label="Search">
+	  <button class="btn  my-2 my-sm-0" type="submit">Busca Reddit!</button>
+	</form>
+      </div>
+    </nav>
+
+    <main>
+
+
+      <!-- Table -->
+      <div class="card">
+	<div class="card-header">
+	  <h2 align="center">IMDB Top 5</h2>
+	</div>
+	<div class="card-body">
+	  <table class="table">
+	    <thead>
+	      <tr>
+		<td></td>
+		<td>Código</td>
+		<td>Nombre</td>
+		<td>Rating</td>
+	      </tr>
+	    </thead>
+	    <tbody>
+              <tr *ngFor="let category of categories">
+		<td>{{ category.category_id }}</td>
+		<td>{{ category.code }}</td>
+		<td>{{ category.category }}</td>
+		<td>{{ category.status }}</td>
+              </tr>
+	    </tbody>
+	  </table>
+	</div>
+      </div>
+
+    </main>
+  </body>
+</html>

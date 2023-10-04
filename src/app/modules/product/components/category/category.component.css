@@ -1,0 +1,15 @@
+main {
+    max-width: 1280px;
+    margin: auto;
+    margin-top: 16px;
+}
+
+#navbarSupportedContent {
+        max-width: 1280px;
+        margin: auto;
+}
+
+h2 {
+    color: black;
+    background-color: #F5DE50;
+}
