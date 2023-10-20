@@ -35,8 +35,10 @@
   <!-- Table -->
   <div class="card">
     <div class="card-header">
-	  <h2 align="center" class="text-center mb-0">IMDB Top 5</h2>
-	  <button type="button" class="btn" (click)="showModalForm()">Nueva categoría</button>
+      <h2 align="center" class="text-center mb-0">IMDB Top 5</h2>
+      <button type="button" class="btn" (click)="showModalForm()">
+	<i class="ph ph-plus-circle"></i>
+      </button>
     </div>
     <div class="card-body">
       <table class="table">
@@ -45,7 +47,8 @@
 	    <td></td>
 	    <td>Código</td>
 	    <td>Nombre</td>
-	    <td>Rating</td>
+	    <td>Estatus</td>
+	    <td>Más</td>
 	  </tr>
 	</thead>
 	<tbody>
@@ -53,7 +56,29 @@
 	    <td>{{ category.category_id }}</td>
 	    <td>{{ category.code }}</td>
 	    <td>{{ category.category }}</td>
-	    <td>{{ category.status }}</td>
+            <td class="td-status"
+		[ngClass]="{'td-status-enable': category.status == 1, 'td-status-disable': category.status == 0}" >
+	      {{ category.status == 0 ? "Inactivo" : "Activo" }}
+            </td>
+	    <td>
+	      <div class="btn-group dropright">
+		<button class="btn" id="dropdownmenubutton" type="button" data-bs-toggle="dropdown"
+			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		  <i class="ph ph-dots-three-outline-vertical icon-menu"></i>
+		</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownmenubutton">
+		  <a class="dropdown-item" (click)="updateCategory(category)">
+		    <i class="ph ph-note-pencil icon-text-ul"></i> Editar
+		  </a>
+		  <a *ngIf="category.status == 0" class="dropdown-item enable-item text-success" (click)="enableCategory(category)">
+		    <i class="ph ph-check-circle icon-text-ul"></i> Activar
+		  </a>
+		  <a *ngIf="category.status == 1" class="dropdown-item disable-item text-danger" (click)="disableCategory(category)">
+		    <i class="ph ph-x-circle icon-text-ul"></i> Desactivar
+		  </a>
+		</div>
+	      </div>
+	    </td>
           </tr>
 	</tbody>
       </table>
@@ -62,41 +87,41 @@
 
   <!-- Modal Form -->
   <div class="modal fade" data-bs-backdrop="static" tabindex="-1" role="dialog" id="modalForm">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Nueva región</h5>
-        <button type="button" class="modal-close-button" data-bs-dismiss="modal" aria-label="Close">
-          <span class="modal-close-button-x">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="categoría">Categoría <span class="color-red">*</span> </label>
-            <input type="text" class="form-control" formControlName="category" id="category" placeholder="Nombre de la categoría..."
-              [ngClass]="{'is-invalid': form.controls['category'].errors && submitted}" >
-            <div *ngIf="form.controls['category'].errors && submitted">
-              <small class="color-red">Favor de ingresar una categoría válida</small>
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+	<div class="modal-header">
+          <h5 class="modal-title">Nueva categoría</h5>
+          <button type="button" class="modal-close-button btn" data-bs-dismiss="modal" aria-label="Close">
+            <span class="modal-close-button-x">&times;</span>
+          </button>
+	</div>
+	<div class="modal-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+	      <label for="categoría">Categoría <span class="color-red">*</span> </label>
+	      <input type="text" class="form-control" formControlName="category" id="category" placeholder="Nombre de la categoría..."
+		     [ngClass]="{'is-invalid': form.controls['category'].errors && submitted}" >
+	      <div *ngIf="form.controls['category'].errors && submitted">
+		<small class="color-red">Favor de ingresar una categoría válida</small>
+	      </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="code">Código <span class="color-red">*</span> </label>
-            <input type="text" class="form-control" formControlName="code" id="code" placeholder="Código de la categoríá..."
-              [ngClass]="{'is-invalid': form.controls['code'].errors && submitted}" >
-            <div *ngIf="form.controls['code'].errors && submitted">
-              <small class="color-red">Favor de ingresar un código de categoria válido</small>
+            <div class="form-group">
+	      <label for="code">Código <span class="color-red">*</span> </label>
+	      <input type="text" class="form-control" formControlName="code" id="code" placeholder="Código de la categoría..."
+		     [ngClass]="{'is-invalid': form.controls['code'].errors && submitted}" >
+	      <div *ngIf="form.controls['code'].errors && submitted">
+		<small class="color-red">Favor de ingresar un código de categoria válido</small>
+	      </div>
             </div>
-          </div>
-          <div class="form-button">
-            <button type="submit" class="btn">Guardar</button>
-          </div>
+            <div class="form-button">
+	      <button type="submit" class="btn">Guardar</button>
+            </div>
 
-        </form>
+          </form>
+	</div>
       </div>
     </div>
   </div>
-</div>
 
 </main>
 

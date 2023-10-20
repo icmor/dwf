@@ -15,8 +15,11 @@ main {
     align-items: center;
 }
 
+.modal-title {
+    color: black
+}
+
 .form-button button,
-.modal-title,
 .card-header {
     color: black;
     background-color: #F5DE50;
@@ -30,4 +33,12 @@ main {
 .card-header .btn {
     color: white;
     background-color: #303030;
+}
+
+.td-status-disable {
+    background-color: #ff0000AA;
+}
+
+.td-status-enable {
+    background-color: #F5DE50AA;
 }
