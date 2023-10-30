@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Category } from '../../_models/category';
 import { FormBuilder, Validators } from '@angular/forms';
 
+import Swal from'sweetalert2';
+
 declare var $: any;
 
 @Component({
