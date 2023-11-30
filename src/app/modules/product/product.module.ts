@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoryComponent } from './components/category/category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     CategoryComponent
