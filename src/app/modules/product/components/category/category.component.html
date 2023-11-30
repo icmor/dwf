@@ -1,0 +1,128 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navbar-collapse collapse" id="navbarSupportedContent">
+    <a class="navbar-brand"
+       href="https://web.fciencias.unam.mx/docencia/horarios/presentacion/347487">
+      Desarrollo Web Frontend
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link"
+	   href="https://classroom.google.com/c/NjE2NjgwNjk5MTM3">
+	  Classroom
+	</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+	   role="button" data-toggle="dropdown" aria-haspopup="true"
+	   aria-expanded="false">
+          Guías
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML</a>
+          <a class="dropdown-item" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">CSS</a>
+          <a class="dropdown-item" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0"  action="https://www.reddit.com/search/">
+      <input class="form-control mr-sm-2" name="q" type="search" placeholder="🐈" aria-label="Search">
+      <button class="btn  my-2 my-sm-0" type="submit">Busca Reddit!</button>
+    </form>
+  </div>
+</nav>
+<main>
+  <!-- Table -->
+  <div class="card">
+    <div class="card-header">
+      <h2 align="center" class="text-center mb-0">IMDB Top 5</h2>
+      <button type="button" class="btn" (click)="showModalForm()">
+	<i class="ph ph-plus-circle"></i>
+      </button>
+    </div>
+    <div class="card-body">
+      <table class="table">
+	<thead>
+	  <tr>
+	    <td></td>
+	    <td>Código</td>
+	    <td>Nombre</td>
+	    <td>Estatus</td>
+	    <td>Más</td>
+	  </tr>
+	</thead>
+	<tbody>
+          <tr *ngFor="let category of categories">
+	    <td>{{ category.category_id }}</td>
+	    <td>{{ category.code }}</td>
+	    <td>{{ category.category }}</td>
+            <td class="td-status"
+		[ngClass]="{'td-status-enable': category.status == 1, 'td-status-disable': category.status == 0}" >
+	      {{ category.status == 0 ? "Inactivo" : "Activo" }}
+            </td>
+	    <td>
+	      <div class="btn-group dropright">
+		<button class="btn" id="dropdownmenubutton" type="button" data-bs-toggle="dropdown"
+			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		  <i class="ph ph-dots-three-outline-vertical icon-menu"></i>
+		</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownmenubutton">
+		  <a class="dropdown-item" (click)="updateCategory(category)">
+		    <i class="ph ph-note-pencil icon-text-ul"></i> Editar
+		  </a>
+		  <a *ngIf="category.status == 0" class="dropdown-item enable-item text-success" (click)="enableCategory(category.category_id)">
+		    <i class="ph ph-check-circle icon-text-ul"></i> Activar
+		  </a>
+		  <a *ngIf="category.status == 1" class="dropdown-item disable-item text-danger" (click)="disableCategory(category.category_id)">
+		    <i class="ph ph-x-circle icon-text-ul"></i> Desactivar
+		  </a>
+		</div>
+	      </div>
+	    </td>
+          </tr>
+	</tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Form -->
+  <div class="modal fade" data-bs-backdrop="static" tabindex="-1" role="dialog" id="modalForm">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+	<div class="modal-header">
+          <h5 class="modal-title">Nueva categoría</h5>
+          <button type="button" class="modal-close-button btn" data-bs-dismiss="modal" aria-label="Close">
+            <span class="modal-close-button-x">&times;</span>
+          </button>
+	</div>
+	<div class="modal-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+	      <label for="categoría">Categoría <span class="color-red">*</span> </label>
+	      <input type="text" class="form-control" formControlName="category" id="category" placeholder="Nombre de la categoría..."
+		     [ngClass]="{'is-invalid': form.controls['category'].errors && submitted}" >
+	      <div *ngIf="form.controls['category'].errors && submitted">
+		<small class="color-red">Favor de ingresar una categoría válida</small>
+	      </div>
+            </div>
+            <div class="form-group">
+	      <label for="code">Código <span class="color-red">*</span> </label>
+	      <input type="text" class="form-control" formControlName="code" id="code" placeholder="Código de la categoría..."
+		     [ngClass]="{'is-invalid': form.controls['code'].errors && submitted}" >
+	      <div *ngIf="form.controls['code'].errors && submitted">
+		<small class="color-red">Favor de ingresar un código de categoria válido</small>
+	      </div>
+            </div>
+            <div class="form-button">
+	      <button type="submit" class="btn">Guardar</button>
+            </div>
+
+          </form>
+	</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
