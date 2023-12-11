@@ -126,7 +126,7 @@ export class CategoryComponent {
         Swal.fire({
           position: 'top-end',
           icon: 'success',
-          text: 'La región ha sido registrada',
+          text: 'La categoría ha sido registrada',
           background: '#E1FFE6',
           showConfirmButton: false,
           timer: 2000
@@ -154,14 +154,14 @@ export class CategoryComponent {
         Swal.fire({
           position: 'top-end',
           icon: 'success',
-          text: 'La región ha sido actualizada',
+          text: 'La categoría ha sido actualizada',
           background: '#E1FFE6',
           showConfirmButton: false,
           timer: 2000
         });
         this.getCategories();
 
-        $("#modalForm").modal("hide"); 
+        $("#modalForm").modal("hide");
 
         this.categoryUpdated = 0;
       },
@@ -177,7 +177,7 @@ export class CategoryComponent {
       }
     );
   }
-  
+
   updateCategory(category: Category){
     this.categoryUpdated = category.category_id;
     this.form.reset();
