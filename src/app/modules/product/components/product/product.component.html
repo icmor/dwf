@@ -32,11 +32,13 @@
 	  </button>
 	</div>
       </div>
-      <input type="file" style="display: none;" id="imageUpload"
-	     (change)="fileChangeHandler($event)">
-      <label for="imageUpload" class="btn btn-primary">
-	Agregar Imágenes <i class="ph ph-plus-circle"></i>
-      </label>
+      <div *ngIf="product">
+	<input type="file" style="display: none;" id="imageUpload"
+	       (change)="fileChangeHandler($event)">
+	<label for="imageUpload" class="btn btn-primary">
+	  Agregar Imágenes <i class="ph ph-plus-circle"></i>
+	</label>
+      </div>
     </div>
     <div class="col-sm-8">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
