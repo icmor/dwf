@@ -1,0 +1,16 @@
+#navbarSupportedContent {
+    max-width: 1280px;
+    margin: auto;
+}
+
+#navbarSupportedContent a {
+    color: black;
+}
+
+.navbar-nav > li{
+    padding: 0.5em 0.5em;
+}
+
+.navbar-left {
+    margin-left: auto;
+}

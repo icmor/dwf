@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CategoryComponent } from './modules/product/components/category/category.component';
+
+import { ProductComponent } from './modules/product/components/product/product.component';
+import { ProductListComponent } from './modules/product/components/product-list/product-list.component';
+import { CategoryComponent } from './modules/category/components/category/category.component';
 
 const routes: Routes = [
-    { path: "category", component: CategoryComponent }
+  { path: "products", component: ProductListComponent },
+  { path: "categories", component: CategoryComponent },
+  {path: 'product', redirectTo: 'product/', pathMatch: 'full'},
+  { path: "product/:gtin", component: ProductComponent },
 ];
 
 @NgModule({

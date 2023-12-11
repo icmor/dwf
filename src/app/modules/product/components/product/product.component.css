@@ -1,0 +1,10 @@
+main {
+    max-width: 1280px;
+    margin: auto;
+    margin-top: 16px;
+}
+
+.carousel-item {
+    float:none;
+    transition: 0s !important;
+}

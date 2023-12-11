@@ -4,11 +4,6 @@ main {
     margin-top: 16px;
 }
 
-#navbarSupportedContent {
-        max-width: 1280px;
-        margin: auto;
-}
-
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -21,18 +16,18 @@ main {
 
 .form-button button,
 .card-header {
-    color: black;
-    background-color: #F5DE50;
+    color: white;
+    background-color: #385170;
 }
 
 .card-header h2 {
-    color: black;
+    color: white;
     margin: 0 auto;
 }
 
 .card-header .btn {
     color: white;
-    background-color: #303030;
+    display: flex;
 }
 
 .td-status-disable {
@@ -40,5 +35,5 @@ main {
 }
 
 .td-status-enable {
-    background-color: #F5DE50AA;
+    background-color: #94DD4DAA;
 }

@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CategoryComponent } from './components/category/category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+
+import { ProductComponent } from './components/product/product.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
   declarations: [
-    CategoryComponent
+    ProductComponent,
+    ProductListComponent
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
+    RouterModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ],
   exports: [
-    CategoryComponent
+    ProductComponent,
+    ProductListComponent
   ]
 })
 export class ProductModule { }
