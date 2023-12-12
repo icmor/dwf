@@ -4,7 +4,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { CategoryService } from '../../_services/category.service';
 
 import Swal from'sweetalert2';
-
 declare var $: any;
 
 @Component({
@@ -16,13 +15,12 @@ declare var $: any;
 export class CategoryComponent {
   categories: Category[] = [];
   categoryUpdated: number = 0;
+  submitted = false;
 
   form = this.formBuilder.group({
     category: ["", [Validators.required]],
     code: ["", [Validators.required]],
   });
-
-  submitted = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -62,7 +60,6 @@ export class CategoryComponent {
           showConfirmButton: false,
           timer: 2000
         });
-
         this.getCategories();
       },
       err => {
@@ -91,7 +88,6 @@ export class CategoryComponent {
           showConfirmButton: false,
           timer: 2000
         });
-
         this.getCategories();
       },
       err => {
@@ -160,9 +156,7 @@ export class CategoryComponent {
           timer: 2000
         });
         this.getCategories();
-
         $("#modalForm").modal("hide");
-
         this.categoryUpdated = 0;
       },
       err => {
