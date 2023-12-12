@@ -1,0 +1,66 @@
+main {
+    max-width: 1280px;
+    margin: auto;
+    margin-top: 16px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    color: black
+}
+
+.form-button button,
+.card-header {
+    color: white;
+    background-color: #385170;
+}
+
+.card-header h2 {
+    color: white;
+    margin: 0 auto;
+}
+
+.card-header .btn {
+    color: white;
+    display: flex;
+}
+
+.td-status-disable {
+    background-color: #ff0000AA;
+}
+
+.td-status-enable {
+    background-color: #94DD4DAA;
+}
+
+.card-body-customer{
+    padding: 16px;
+}
+
+.customer-image{
+    border-radius: 100%;
+    width: 240px;
+    height: 240px;
+}
+
+.edit-customer{
+    color: #385170;
+    cursor: pointer;
+    float: right;
+    margin-right: 16px;
+}
+
+.edit-customer-image{
+    color: #385170;
+    margin-bottom: 16px;
+}
+
+.customer-title{
+    font-size: 32px;
+    margin-bottom: 16px;
+}
