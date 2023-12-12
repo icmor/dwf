@@ -1,0 +1,104 @@
+<main>
+  <div *ngIf="invoice">
+    <div class="container">
+      <div class="row">
+	<div class="col">
+	  <strong>RFC emisor:</strong> LOGJ580812RH7
+	</div>
+	<div class="col">
+	  <strong>Folio fiscal:</strong> AIODSUE-81327-B8218-8392-981027C78
+	</div>
+      </div>
+      <div class="row">
+	<div class="col">
+	  <strong>Nombre emisor:</strong> Juan Escutia
+	</div>
+	<div class="col">
+	  <strong>No. de serie del CSD:</strong> 00094309809809843
+	</div>
+      </div>
+      <div class="row">
+	<div class="col">
+	  <strong>RFC receptor:</strong> {{ invoice.rfc }}
+	</div>
+	<div class="col">
+	  <strong>Fecha y hora de emisión:</strong> {{ invoice.created_at }}
+	</div>
+      </div>
+      <div class="row">
+	<div class="col">
+	  <strong>Nombre receptor</strong> Diego Maradona
+	</div>
+	<div class="col">
+	  <strong>Efecto de comprobante</strong> ingreso
+	</div>
+      </div>
+      <div class="row">
+	<div class="col">
+	  <strong>Uso CFDI:</strong> Por definir
+	</div>
+	<div class="col">
+	  <strong>Regimen Fiscal:</strong> Personas Físicas con Actividades Empresariales y Profesionales
+	</div>
+      </div>
+      <div class="row">
+	<div class="col">
+	  <strong>Moneda:</strong> Peso Mexicano
+	</div>
+	<div class="col">
+	  <strong>Subtotal:</strong> {{ invoice.subtotal }}
+	</div>
+      </div>
+      <div class="row">
+	<div class="col">
+	  <strong>Forma de pago:</strong> Tarjeta de crédito
+	</div>
+	<div class="col">
+	  <strong>Total:</strong> {{ invoice.total }}
+	</div>
+      </div>
+      <div class="row">
+	<div class="col">
+	  <strong>Método de pago:</strong> Pago diferido
+	</div>
+	<div class="col">
+	</div>
+      </div>
+    </div>
+
+    <br><br>
+
+    <div>
+      <strong>Sello digital del CFDI:</strong>
+    </div>
+    PV.PKJ'aiYejXq.VwRENVRtbopn3Gq)qx3i:'yE_jfhnIwtt1w4fDQRtRu3GY(Rd4zS1rFS-9w-P/x2[4p44waEKWZH9'kghl0[fqcxtwtE)6SIhAIm)H=Rr6K>yR;qi\'E-YHw42CB8k-6-Lxz1tYa4tEo23Vbal9CVIwF[@r2tgS
+    <div>
+      <strong>Sello digital del SAT:</strong>
+    </div>
+    4`YEA_9Fii\k8v?O23n`ZSWs8,giw9j'MKmCa].k;PjJ;_SBy2Ys1kP2a??JO0)yHt8mgy-FO2FE>7DYtq>]mIimE-hZ/zTO;d-QzQaCKfxZWV+ueLOqu;.f'e0rB(EKu;TTwd/Ytov1Sb.jx.0b)TFnMwUpp+aZQ\lig3r]SGWPP6
+    <div class="container">
+      <div class="row">
+	<div class="col-4">
+	  <qrcode class="d-inline-block"
+		  [qrdata]="invoice.created_at + invoice.rfc"
+		  [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+	</div>
+	<div class="col-8">
+	  <div>
+	    <strong>
+	      Cadena original del complemento de certificación digital del SAT:
+	    </strong>
+	  </div>
+<div>
+  xu+9CZtaSj:c=XaC.;]N1^2et^`NcQOCbI_K9\r.noIlJ;5[o_2+?:]P4Grr^EBi7`BS1-1
+  tp,6^9-4xh2BTI`nj1oH_8drH4Ce9BNNj4XYJWmZ`+^bi3XY1[x8NmWqt9\3p'Y_P.)BBAwY
+  (1k?oxUQ;0/NH+?f)PQN5sR9wDTwM4jxu+9CZtaSj:c=XaC.;]N1^2et^`NcQOCbI_K9\r.noI
+  lJ;5[o_2+?:]P4Grr^EBi7`BS1-1 tp,6^9-4xh2BTI`nj1oH_8drH4Ce9BNNj4XYJWmZ`+^bi3XY1
+  [x8NmWqt9\3p'Y_P.)BBAwY(1k?oxUQ;0/NH+?f)PQN5sR9wDTwM4j
+</div>
+	  <strong>No. de serie del certificado SAT</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0000001230900000923
+	</div>
+      </div>
+    </div>
+  </div>
+</main>

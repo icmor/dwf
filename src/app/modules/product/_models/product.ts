@@ -1,4 +1,4 @@
-export class Product{
+export class Product {
     product_id: number = 0;
     product: string = "";
     gtin: string = "";

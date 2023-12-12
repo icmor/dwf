@@ -107,7 +107,11 @@ export class ProductComponent {
           });
 	}
       );
-      this.router.navigate(['/product', this.form.controls['gtin'].value]);
+      this.router.navigate(['/product', this.form.controls['gtin'].value]).then(
+	() => {
+	  this.ngOnInit();
+	}
+      );
     }
   }
 
@@ -239,7 +243,6 @@ export class ProductComponent {
 
   fileChangeHandler($event: any) {
     this.photoEditorService.open($event, {
-      aspectRatio: 4 / 3,
       autoCropArea: 1
     }).subscribe(data => {
       if(this.product) {

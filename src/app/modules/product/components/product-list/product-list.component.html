@@ -39,6 +39,9 @@
 		  <a class="dropdown-item" [routerLink]="['/product', product.gtin]">
 		    <i class="ph ph-note-pencil icon-text-ul"></i> Editar
 		  </a>
+		  <a class="dropdown-item" [routerLink]="['/cart', product.gtin]">
+		    <i class="ph ph-shopping-cart-simple icon-text-ul"></i> Agregar al carrito
+		  </a>
 		  <a *ngIf="product.status == 0" class="dropdown-item enable-item text-success" (click)="enableProduct(product.product_id)">
 		    <i class="ph ph-check-circle icon-text-ul"></i> Activar
 		  </a>
